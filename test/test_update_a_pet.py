@@ -1,17 +1,18 @@
 import requests
 from utils import test_data
+from utils.test_data import host
 from hamcrest import assert_that, is_
 
 
 class TestUpdatePet:
 
     def test_update_a_pet(self, data=test_data.random_pet):
-        requests.post(url="https://petstore.swagger.io/v2/pet", json=data, headers={
+        requests.post(url=f"{host}/v2/pet", json=data, headers={
             'Content-type': 'application/json',
             'Accept': 'application/json'
         })
         data['name'] = 'cat'
-        resp = requests.put(url=f"https://petstore.swagger.io/v2/pet", json=data, headers={
+        resp = requests.put(url=f"{host}/v2/pet", json=data, headers={
             'Content-type': 'application/json',
             'Accept': 'application/json'
         })
