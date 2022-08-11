@@ -1,5 +1,6 @@
 import random
 
+host = 'https://petstore.swagger.io'
 random_pet = {
         "id": random.randrange(100000),
         "category": {

@@ -1,12 +1,13 @@
 import requests
 from hamcrest import assert_that, is_
 from utils import test_data
+from utils.test_data import host
 
 
 class TestAddNewPet:
 
     def test_add_a_new_pet(self, data=test_data.random_pet):
-        resp = requests.post(url="https://petstore.swagger.io/v2/pet", json=data, headers={
+        resp = requests.post(url=f"{host}/v2/pet", json=data, headers={
             'Content-type': 'application/json',
             'Accept': 'application/json'
         })
@@ -34,7 +35,7 @@ class TestAddNewPet:
             ],
             "status": "available"
         }
-        resp = requests.post(url="https://petstore.swagger.io/v2/pet", json=data, headers={
+        resp = requests.post(url=f"{host}/v2/pet", json=data, headers={
             'Content-type': 'application/json',
             'Accept': 'application/json'
         })
